@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronic Store</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #00bcd4;
+        }
+        .product {
+            background-color: #1e1e1e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .product img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            display: block;
+        }
+        .product-info {
+            flex-grow: 1;
+        }
+        a {
+            color: #00bcd4;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function addProduct(imageSrc, name, description, link) {
+            const container = document.getElementById("product-list");
+            const productDiv = document.createElement("div");
+            productDiv.classList.add("product");
+            
+            productDiv.innerHTML = `
+                <img src="${imageSrc}" alt="${name}">
+                <div class="product-info">
+                    <h2>${name}</h2>
+                    <p>${description}</p>
+                    <a href="${link}">Buy Now</a>
+                </div>
+            `;
+            
+            container.appendChild(productDiv);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Our Electronic Store</h1>
+        <p>Find the best electronics here. Click the links to purchase.</p>
+        
+        <div id="product-list"></div>
+    </div>
+    
+    <script>
+        // Example usage of addProduct function
+        addProduct("product1.jpg", "Product Name", "Product description goes here.", "#");
+        addProduct("product2.jpg", "Another Product", "Description of the second product.", "#");
+    </script>
+</body>
+</html>
+
